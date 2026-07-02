@@ -1,0 +1,23 @@
+Bin/assignment space: do high-usage bins sit in high-density z regions?
+======================================================================
+
+For each code (bin): usage = # of z that assign to it; density_at_code = k-NN density of z at bin center.
+Spearman(usage, density_at_code): positive => bins that are used more are in denser z regions.
+
+If LMB's 'codes concentrate where mass is' in BIN space, we expect LMB to have
+  high positive Spearman (high-usage bins = high density at bin center).
+
+----------------------------------------------------------------------
+Model          Spearman(use,dens)    p-value   n_active
+----------------------------------------------------------------------
+FSQ 16K                    0.6179   0.00e+00       5397
+VQ 16K                     0.5552  1.27e-269       3342
+LFQ 16K                    0.0272   7.72e-02       4221
+SimVQ 16K                  0.3718  3.11e-187       5726
+LMB 16K                    0.4448  3.26e-209       4325
+----------------------------------------------------------------------
+
+Highest Spearman (usage vs density at code): FSQ 16K (rho = 0.6179)
+=> LMB is not the highest; concentration-in-bin-space interpretation is mixed.
+
+======================================================================

@@ -1,0 +1,38 @@
+
+Quantization structure metrics (professor-recommended)
+======================================================================
+
+1. Distance alignment (encoder z → nearest code)
+--------------------------------------------------
+  FSQ 16K:  latent_to_code_mean = 0.0000   relative_quant_error = 0.0000   orphan_codes_pct = 0.00
+  VQ 16K:  latent_to_code_mean = 0.2953   relative_quant_error = 6.5976   orphan_codes_pct = 11.29
+  LFQ 16K:  latent_to_code_mean = 0.0000   relative_quant_error = 0.0000   orphan_codes_pct = 0.00
+  SimVQ 16K:  latent_to_code_mean = 0.6514   relative_quant_error = 1.0681   orphan_codes_pct = 3.01
+  LMB 16K:  latent_to_code_mean = 7.3992   relative_quant_error = 6.7778   orphan_codes_pct = 0.00
+
+2. Code usage (Gini, entropy of usage, % mass in top codes)
+--------------------------------------------------
+  FSQ 16K:  Gini = 0.2492   Entropy(usage) = 12.20 bits   Top10% = 24.3%   Top1% = 3.9%   n_active = 5400
+  VQ 16K:  Gini = 0.5274   Entropy(usage) = 10.05 bits   Top10% = 51.9%   Top1% = 31.1%   n_active = 3331
+  LFQ 16K:  Gini = 0.3341   Entropy(usage) = 11.74 bits   Top10% = 27.8%   Top1% = 4.7%   n_active = 4217
+  SimVQ 16K:  Gini = 0.2207   Entropy(usage) = 12.32 bits   Top10% = 22.5%   Top1% = 3.7%   n_active = 5742
+  LMB 16K:  Gini = 0.3084   Entropy(usage) = 11.85 bits   Top10% = 25.4%   Top1% = 4.4%   n_active = 4409
+
+3. WCSS & Silhouette at k = model's active code count
+   (WCSS/TSS = fraction of variance unexplained; comparable across FSQ/LFQ vs VQ/SimVQ/LMB)
+--------------------------------------------------
+  FSQ 16K:  WCSS_at_k = 0.00   WCSS/TSS = 0.0000   Silhouette_at_k = 0.4070   (k = 5400)
+  VQ 16K:  WCSS_at_k = 104.90   WCSS/TSS = 0.2098   Silhouette_at_k = -0.0279   (k = 3331)
+  LFQ 16K:  WCSS_at_k = 0.00   WCSS/TSS = 0.0000   Silhouette_at_k = 0.5902   (k = 4217)
+  SimVQ 16K:  WCSS_at_k = 368.85   WCSS/TSS = 0.1844   Silhouette_at_k = 0.1092   (k = 5742)
+  LMB 16K:  WCSS_at_k = 8168.30   WCSS/TSS = 0.8168   Silhouette_at_k = 0.1180   (k = 4409)
+
+4. Entropy (bits) from eval_metrics
+--------------------------------------------------
+  FSQ 16K:  entropy_bits = 13.46
+  VQ 16K:  entropy_bits = 10.75
+  LFQ 16K:  entropy_bits = 12.51
+  SimVQ 16K:  entropy_bits = 13.62
+  LMB 16K:  entropy_bits = 12.64
+
+======================================================================

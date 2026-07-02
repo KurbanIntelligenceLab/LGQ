@@ -1,0 +1,34 @@
+#!/bin/bash
+# LMB Ablation: Per-channel fair FLATTENED (project to 4 channels, then vector quantize with 16K bins)
+# This is the "flattened" version of per-channel fair: same projection, but VQ instead of per-channel scalar
+
+set -e
+
+cd /workspace/vector-quantize
+export PYTHONPATH="${PWD}:${PWD}/external:${PYTHONPATH:-}"
+mkdir -p logs
+
+/venv/encoder_decoder/bin/python3 scripts/train.py \
+    --model lmb \
+    --data-root "${DATA_ROOT:-data/imagenet}" \
+    --batch-size 32 \
+    --epochs 100 \
+    --lr 0.0003 \
+    --dim 128 \
+    --embedding-dim 128 \
+    --perchannel-fair \
+    --flatten-channels \
+    --lmb-levels 16 16 8 8 \
+    --lambda-peak 0.005 \
+    --lambda-bins 0.005 \
+    --lambda-floor 0.0 \
+    --p-min 0.0 \
+    --tau-start 1.0 \
+    --tau-end 0.1 \
+    --init-method random \
+    --image-size 128 \
+    --gpu "${GPU:-0}" \
+    --num-workers 8 \
+    --seed 1234 \
+    --run-name lmb_ablation_perchannel_fair_flattened \
+    "$@"

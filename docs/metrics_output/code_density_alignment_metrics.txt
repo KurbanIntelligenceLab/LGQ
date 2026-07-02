@@ -1,0 +1,27 @@
+Code density alignment — do codes concentrate where encoder mass is?
+================================================================================
+
+Density: k-NN estimate (density ∝ 1/r^d, r = mean dist to k nearest z).
+density_ratio = mean(density at codes) / mean(density at z).
+  ratio > 1  =>  codes tend to sit in higher-density regions than average.
+  (FSQ/LFQ: discrete codes → ratio meaningless or huge; focus on continuous methods.)
+
+mean_code→z = mean over codes of (distance to nearest z).
+relative = mean_code→z / mean(z spacing). < 1 => codes closer to z than typical z spacing.
+
+--------------------------------------------------------------------------------
+Model           density_ratio  mean_code→z   relative   n_active
+--------------------------------------------------------------------------------
+FSQ 16K                1.5300       0.0000      0.000       5388
+VQ 16K               2.72e-23       0.3380      1.181       3220
+LFQ 16K              7.07e-11  749507.4891      3.672       4190
+SimVQ 16K          14992.7765       0.6239      0.799       5740
+LMB 16K              7.41e-92       7.2691      3.554       4405
+--------------------------------------------------------------------------------
+
+Among VQ/SimVQ/LMB — highest density_ratio (codes in densest regions): SimVQ 16K (ratio = 14992.7765)
+Among VQ/SimVQ/LMB — smallest mean code→z (codes closest to z): VQ 16K (mean = 0.3380, relative = 1.181)
+
+Conclusion: If LMB's codes concentrate where encoder mass is, we expect LMB to have
+  density_ratio > 1 and/or relative_code_to_latent < 1 (codes closer than typical z spacing).
+================================================================================

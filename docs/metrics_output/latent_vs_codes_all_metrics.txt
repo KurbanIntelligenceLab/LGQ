@@ -1,0 +1,35 @@
+Latent vs active codes (main 16K models)
+============================================================
+
+Images: 200  |  Subsampled z: 14336
+
+FSQ 16K:
+  Active codes: 7689 (46.9% utilization)
+  latent_to_code_mean: 0.0000
+  relative_quant_error: 0.0000
+  orphan_codes_pct: 0.0000
+
+VQ 16K:
+  Active codes: 4755 (29.0% utilization)
+  latent_to_code_mean: 0.2807
+  relative_quant_error: 6.5280
+  orphan_codes_pct: 14.3007
+
+LFQ 16K:
+  Active codes: 5599 (34.2% utilization)
+  latent_to_code_mean: 0.0000
+  relative_quant_error: 0.0000
+  orphan_codes_pct: 0.0000
+
+SimVQ 16K:
+  Active codes: 8332 (50.9% utilization)
+  latent_to_code_mean: 0.6502
+  relative_quant_error: 1.0483
+  orphan_codes_pct: 2.5924
+
+LGQ (Ours):
+  Active codes: 5826 (35.6% utilization)
+  latent_to_code_mean: 7.3986
+  relative_quant_error: 6.7786
+  orphan_codes_pct: 0.0000
+

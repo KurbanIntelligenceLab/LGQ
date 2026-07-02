@@ -1,0 +1,4 @@
+LFQ 16K (embedding space: z vs z_q)
+Unique z_q: 4791
+Relative quant error: 11.6200
+Orphan %: 0.00

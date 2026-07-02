@@ -1,0 +1,129 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyTorch
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+dbg_timesnet/
+
+# IDE
+.vscode/*
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Data directories
+data/
+Data/
+datasets/
+*.tar
+*.tar.gz
+*.zip
+
+# Local Claude Code state
+.claude/
+
+# Phase 0 experiment artifacts (results, not source)
+_phase0_run/
+phase0_results/
+scripts/analysis/_phase0_run/
+
+# Results and outputs
+results/
+outputs/
+runs/
+logs/
+wandb/
+checkpoints/
+*.log
+
+# Images and visualizations
+samples/
+*.png
+*.jpg
+*.jpeg
+*.gif
+!images/*.png
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Models and weights (except for small examples)
+*.pth.tar
+models/
+
+# Cache
+.cache/
+*.cache
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Documentation build
+docs/_build/
+docs/_static/
+docs/_templates/
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+.directory
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+.vscode/scripts/safety/.env
+.openai_key
+.gemini_key
